@@ -16,7 +16,7 @@ class Requests
      * 
      * @return false|string false em caso de falha e uma string com o retorno em caso de sucesso
      */
-    public static function send(string $url, string $metodo, array $data):false|string
+    public static function send(string $url, string $metodo, array $data)
     {
         if($metodo != self::GET && $metodo != self::POST)
             return false;
@@ -39,7 +39,7 @@ class Requests
             return false;
 
         // Envia a requisição
-        return file_get_contents($url, false, $context);
+        return @file_get_contents($url, false, $context);
     }
 }
 
